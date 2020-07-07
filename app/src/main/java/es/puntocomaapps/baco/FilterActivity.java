@@ -58,12 +58,7 @@ public class FilterActivity extends AppCompatActivity {
 
         // Contenido
 
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-
-            }
-        });
+        MobileAds.initialize(this, initializationStatus -> {});
 
         final AdView adViewFiltro = findViewById(R.id.adViewFiltro);
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -114,24 +109,21 @@ public class FilterActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigationView);
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
-                    case R.id.home:
-                        Intent i1 = new Intent(FilterActivity.this, MainActivity.class);
-                        startActivity(i1);
-                        break;
-                    case R.id.filter:
-                        break;
-                    case R.id.profile:
-                        Intent i2 = new Intent(FilterActivity.this, ProfileActivity.class);
-                        startActivity(i2);
-                        break;
-                }
-                return true;
+        bottomNavigationView.setOnNavigationItemSelectedListener(menuItem -> {
+            switch (menuItem.getItemId()) {
+                case R.id.home:
+                    Intent i1 = new Intent(FilterActivity.this, MainActivity.class);
+                    startActivity(i1);
+                    break;
+                case R.id.filter:
+                    break;
+                case R.id.profile:
+                    Intent i2 = new Intent(FilterActivity.this, ProfileActivity.class);
+                    startActivity(i2);
+                    break;
             }
-        } );
+            return true;
+        });
         // Fin barra inferior
     }
 }

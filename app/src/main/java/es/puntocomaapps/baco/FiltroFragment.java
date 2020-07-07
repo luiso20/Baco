@@ -19,9 +19,15 @@ import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdLoader;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.VideoOptions;
+import com.google.android.gms.ads.formats.NativeAdOptions;
+import com.google.android.gms.ads.formats.UnifiedNativeAd;
+import com.google.android.gms.ads.formats.UnifiedNativeAdView;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.firebase.database.DataSnapshot;
@@ -36,10 +42,21 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
+
+import static com.firebase.ui.auth.AuthUI.getApplicationContext;
 
 public class FiltroFragment extends Fragment {
 
-    private FirebaseRecyclerAdapter mAdapter;
+    public static final int TYPE_POST = 0;
+    public static final int TYPE_AD = 1;
+
+    private static final String ADMOB_AD_UNIT_ID = "ca-app-pub-3170770616008852/3051289383";
+    private static final String ADMOB_AD_UNIT_ID_TEST = "ca-app-pub-3940256099942544/2247696110";
+
+    private UnifiedNativeAd nativeAd;
+
+    private FirebaseRecyclerAdapter<Evento, RecyclerView.ViewHolder> mAdapter;
     private String municipio;
     private ProgressBar pBarFiltro;
 
@@ -52,6 +69,8 @@ public class FiltroFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_filtro, container, false);
+
+        MobileAds.initialize(getContext(), initializationStatus -> {});
 
         pBarFiltro = view.findViewById(R.id.pBarFiltro);
 
@@ -82,37 +101,85 @@ public class FiltroFragment extends Fragment {
                                     .setQuery( query, Evento.class )
                                     .build();
 
-                    mAdapter = new FirebaseRecyclerAdapter<Evento, EventoHolder>(options) {
+                    mAdapter = new FirebaseRecyclerAdapter<Evento, RecyclerView.ViewHolder>(options) {
 
                         @NonNull
                         @Override
-                        public EventoHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-                            View view = LayoutInflater.from( viewGroup.getContext() )
-                                    .inflate( R.layout.item_lista, viewGroup, false );
-                            return new EventoHolder( view );
+                        public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+                            if (i == TYPE_POST) {
+                                View eventView = LayoutInflater.from(viewGroup.getContext())
+                                        .inflate(R.layout.item_lista, viewGroup, false);
+                                return new EventoHolder(eventView);
+                            } else {
+                                UnifiedNativeAdView adView = (UnifiedNativeAdView) LayoutInflater.from(viewGroup.getContext())
+                                        .inflate(R.layout.ad_unified, viewGroup, false);
+
+                                AdLoader.Builder builder = new AdLoader.Builder(Objects.requireNonNull(getContext()), ADMOB_AD_UNIT_ID_TEST);
+
+                                builder.forUnifiedNativeAd(unifiedNativeAd -> {
+                                    // You must call destroy on old ads when you are done with them,
+                                    // otherwise you will have a memory leak.
+                                    if (nativeAd != null) {
+                                        nativeAd.destroy();
+                                    }
+                                    nativeAd = unifiedNativeAd;
+
+                                    PopulateUnifiedNativeAdView populateUnifiedNativeAdView = new PopulateUnifiedNativeAdView(unifiedNativeAd, adView);
+
+                                });
+
+                                VideoOptions videoOptions = new VideoOptions.Builder()
+                                        .build();
+
+                                NativeAdOptions adOptions = new NativeAdOptions.Builder()
+                                        .setVideoOptions(videoOptions)
+                                        .build();
+
+                                builder.withNativeAdOptions(adOptions);
+
+                                AdLoader adLoader = builder.withAdListener(new AdListener() {
+                                    @Override
+                                    public void onAdFailedToLoad(int i) {
+                                        Toast.makeText(getContext(), "Failed to load native ad: "
+                                                + i, Toast.LENGTH_SHORT).show();
+                                    }
+                                }).build();
+
+                                adLoader.loadAd(new AdRequest.Builder().build());
+
+                                return new AdHolder(adView);
+                            }
                         }
 
                         @Override
-                        protected void onBindViewHolder(@NonNull EventoHolder eventoHolder, int position, @NonNull final Evento evento) {
-                            eventoHolder.setDetails(getContext(), evento.getFoto(), evento.getTitulo(),
-                                    evento.getFecha(), evento.getMunicipio());
+                        public int getItemViewType(int position) {
+                            if ((position % 8) == 0) {
+                                return TYPE_AD;
+                            } else {
+                                return TYPE_POST;
+                            }
+                        }
 
-                            eventoHolder.setOnClickListener( new EventoHolder.ClickListener() {
-                                @Override
-                                public void onItemClick(View view, int position) {
+                        @Override
+                        protected void onBindViewHolder(@NonNull final RecyclerView.ViewHolder holder, int position, @NonNull final Evento evento) {
+                            if (getItemViewType(position) == TYPE_POST) {
+                                EventoHolder eventoHolder = (EventoHolder) holder;
+                                eventoHolder.setDetails(getContext(), evento.getFoto(), evento.getTitulo(),
+                                        evento.getFecha(), evento.getMunicipio());
+
+                                eventoHolder.setOnClickListener((view1, position1) -> {
                                     Intent intent = new Intent(getContext(), EventosActivity.class);
                                     intent.putExtra( "ficha", evento );
                                     startActivity( intent );
-
-                                }
-                            } );
-
+                                });
+                            }
                             pBarFiltro.setVisibility(View.INVISIBLE);
                         }
                     };
 
                     mAdapter.startListening();
                     rvListadoFiltro.setAdapter(mAdapter);
+
                 } else {
                     pBarFiltro.setVisibility(View.INVISIBLE);
                     TextView tvSinEventos = view.findViewById(R.id.tvSinEventos);
@@ -123,12 +190,7 @@ public class FiltroFragment extends Fragment {
                     tvEmailEventos.setVisibility(View.VISIBLE);
                     AdView adViewSinEventos = view.findViewById(R.id.adViewSinEventos);
                     adViewSinEventos.setVisibility(View.VISIBLE);
-                    tvEmailEventos.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            enviarEmail();
-                        }
-                    });
+                    tvEmailEventos.setOnClickListener(v -> enviarEmail());
                 }
             }
 
@@ -151,5 +213,13 @@ public class FiltroFragment extends Fragment {
         } catch (android.content.ActivityNotFoundException ex) {
             Toast.makeText(getContext(), "No encuentro ningún cliente de correo instalado", Toast.LENGTH_LONG).show();
         }
+    }
+
+    @Override
+    public void onDestroyView() {
+        if (nativeAd != null) {
+            nativeAd.destroy();
+        }
+        super.onDestroyView();
     }
 }
