@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#673AB7</color>
+    <color name="primary_dark">#512DA8</color>
+    <color name="primary_light">#D1C4E9</color>
+    <color name="accent">#E040FB</color>
+    <color name="primary_text">#FFFFFF</color>
+    <color name="secondary_text">#757575</color>
+    <color name="error_text">#ff7878</color>
+    <color name="gris">#DAD7D7</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#BDBDBD</color>
+    <color name="black_overlay">#66000000</color>
+
+    <!--Native Ad Colors-->
+    <color name="ad_attribution_background_color">#FFA500</color>
+    <color name="ad_background_color">#FFFFF0</color>
+    <color name="ad_heading_color">#00008B</color>
+    <color name="ad_body_text_color">#696969</color>
+    <color name="add_button_color">#6200EE</color>
+    <color name="add_button_text_color">#FFFFFF</color>
+
+</resources>

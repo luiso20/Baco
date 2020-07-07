@@ -1,0 +1,104 @@
+<resources>
+    <!--General-->
+    <string name="app_name">Baco</string>
+    <string name="inicio">Inicio</string>
+    <string name="filtro">Filtro</string>
+    <string name="perfil">Perfil</string>
+
+    <!-- Perfil -->
+    <string name="ajustes">ajustes</string>
+    <string name="evento_destacado">Evento destacado</string>
+    <string name="login">Ya soy usuario</string>
+    <string name="signin">Crear cuenta</string>
+    <string name="usuario">Usuario:</string>
+    <string name="usuario_hint">Usuario</string>
+    <string name="password">Contraseña:</string>
+    <string name="password_hint">Contraseña</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="password_repeat">Repita contraseña:</string>
+    <string name="enviar">Enviar</string>
+    <string name="nombre">Nombre:</string>
+    <string name="apellidos">Apellidos:</string>
+    <string name="title_activity_prueba">Prueba</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="portada">Portada</string>
+    <string name="titulo">Título</string>
+    <string name="fecha">Fecha</string>
+    <string name="eventos">Eventos</string>
+    <string name="lugar">Lugar</string>
+    <string name="hora">Hora</string>
+    <string name="descripcion">Descripción</string>
+    <string name="comentarios">Comentarios</string>
+    <string name="e_mail">E-mail: </string>
+    <string name="imagen_de_evento">Imagen de evento</string>
+    <string name="icono_calendario">Icono calendario</string>
+
+    <string name="title_activity_evento_imagen">EventoImagen</string>
+    <string name="cancelar">Cancelar</string>
+
+    <string name="desconectar">Desconectar</string>
+    <string name="est_s_conectado_como_user">Estás conectado como $user</string>
+    <string name="precio">Precio</string>
+    <string name="precio_del_evento">Precio del evento: </string>
+    <string name="_1">1</string>
+
+    <string name="login_comment">Inicie sesión para valorar</string>
+    <string name="Favoritos">favoritos</string>
+    <string name="ubicacion">ubicacion</string>
+    <string name="municipio">Municipio</string>
+    <string name="opinion">Opina sobre este evento</string>
+    <string name="sugerencias_y_actualizaciones">Sugerencias y actualizaciones</string>
+    <string name="descripcion_flecha">Flecha señalando al Spinner</string>
+    <string name="descripcion_filtro">¿Te interesa un municipio en especial? \n¡Aquí puedes elegir el tuyo!</string>
+    <string name="valoracion">Valoración del usuario</string>
+    <string name="boton_para_valorar">Botón para valorar</string>
+    <string name="boton_para_ir_a_comprar_entrada">boton para ir a comprar entrada</string>
+
+    <string name="nombre_hint">Nombre</string>
+    <string name="apellidos_hint">Apellidos</string>
+    <string name="password_hint2">Escriba de nuevo su contraseña</string>
+    <string name="crear_usuario">Crear usuario</string>
+    <string name="ya_tiene_una_cuenta">¿Ya tiene una cuenta?</string>
+    <string name="acceda_ahora">Acceda ahora</string>
+    <string name="mis_favoritos">Mis Favoritos:</string>
+
+    <string name="iniciar_sesion">Iniciar sesión</string>
+    <string name="crear_cuenta">Cree una</string>
+    <string name="aun_no_tiene_una_cuenta">¿Aún no tiene una cuenta?</string>
+    <string name="usuario_">Usuario</string>
+    <string name="email">Email</string>
+    <string name="sin_eventos">No tenemos eventos para este municipio :(</string>
+    <string name="prueba_manana">¡Prueba mañana! O sugiérenos alguno:</string>
+    <string name="email_eventos">events@puntocomaapps.es</string>
+    <string name="hora_no_definida">Hora no definida</string>
+    <string name="anada_eventos_favoritos">Añada sus eventos favoritos.</string>
+    <string name="restablecer_contrasena">Restablecer contraseña</string>
+    <string name="boton_para_compartir">boton para compartir</string>
+    <string name="terms_and_privacy">He leído y acepto las <a href='http://puntocomaapps.es/termsandprivacy.html'>condiciones de uso y las políticas de privacidad</a> de la aplicación</string>
+
+    <!-- Diálogos de aviso -->
+    <string name="dialog_message1">Va a modificar su nombre de usuario por</string>
+    <string name="dialog_message2">, ¿Quiere continuar?</string>
+    <string name="dialog_title">¡Atención!</string>
+    <string name="dialog_message_delete_Fav">¿Está seguro de eliminar este favorito?</string>
+
+    <!--Ad unit ID-->
+    <string name="admob_banner_ad">ca-app-pub-3170770616008852/4215977100</string>
+    <string name="admob_native_ad">ca-app-pub-3170770616008852/3051289383</string>
+    <string name="admob_banner_prueba">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="admob_native_prueba">ca-app-pub-3940256099942544/2247696110</string>
+
+    <!-- Inicio de sesión con huella -->
+    <string name="title_fingerprint">Logueo con un toque</string>
+    <string name="desc_fingerprint">Coloque la yema del dedo en el escáner para verificar su identidad</string>
+    <string name="note">(El inicio de sesión con la huella dactilar hace que la aplicación inicie sesión mucho más rápido. Su dispositivo debe tener al menos una huella digital registrada en la configuración del dispositivo)</string>
+    <string name="activity_home_desc">Ha iniciado sesión con éxito con la autenticación de huellas dactilares</string>
+    <string name="activity_home_note">Cierre y vuelva a abrir la aplicación para volver a ver la pantalla de autenticación de huellas dactilares</string>
+
+    <string name="search_hint">Busca un evento</string>
+    <string name="busqueda">Búsqueda</string>
+    <string name="ad_attribution">Ad</string>
+    <string name="ad_icon">Icono publicidad</string>
+</resources>

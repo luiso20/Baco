@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:id="@+id/cvComentarios"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/primary"
+            android:padding="10dp" >
+
+            <TextView
+                android:id="@+id/tvUsuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="usuario"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/tvValoracion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@id/tvUsuario"
+                android:layout_alignParentEnd="true"
+                android:text="@string/_1"
+                android:textSize="10sp"
+                android:drawableEnd="@drawable/ic_star18x18" />
+
+            <TextView
+                android:id="@+id/tvComentarios"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/tvUsuario"
+                android:text="@string/comentarios"
+                android:textSize="15sp" />
+        </RelativeLayout>
+</androidx.cardview.widget.CardView>
+

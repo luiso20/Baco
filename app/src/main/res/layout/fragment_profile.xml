@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ProfileFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:text="@string/usuario"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/etUsuarioFirebase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="invisible"
+            android:maxLines="1"
+            android:ems="10"
+            android:inputType="text"
+            android:text=""
+            android:padding="10dp"
+            android:imeOptions="actionSend"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/tvUsuario"/>
+
+        <TextView
+            android:id="@+id/tvUsuarioFirebase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/usuario_"
+            android:padding="10dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/tvUsuario"/>
+
+        <!--
+        <ImageButton
+            android:id="@+id/ibEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?android:selectableItemBackground"
+            android:paddingHorizontal="5dp"
+            android:src="@drawable/ic_edit"
+            app:layout_constraintBottom_toTopOf="@+id/ivDivider2"
+            app:layout_constraintEnd_toEndOf="@+id/lvMisFavoritos"
+            app:layout_constraintTop_toTopOf="@+id/tvUsuarioFirebase" />
+            -->
+
+        <ImageView
+            android:id="@+id/ivDivider2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/white"
+            android:contentDescription="@null"
+            app:layout_constraintTop_toBottomOf="@id/tvUsuario"
+            android:src="@android:drawable/divider_horizontal_bright" />
+
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/e_mail"
+            android:padding="10dp"
+            app:layout_constraintTop_toBottomOf="@id/tvUsuario"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvEmailFirebase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/email"
+            android:padding="10dp"
+            app:layout_constraintTop_toBottomOf="@id/tvUsuarioFirebase"
+            app:layout_constraintLeft_toLeftOf="@id/tvUsuarioFirebase"/>
+
+        <ImageView
+            android:id="@+id/ivDivider3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/white"
+            app:layout_constraintTop_toBottomOf="@id/tvEmail"
+            android:contentDescription="@null"
+            android:src="@android:drawable/divider_horizontal_bright" />
+
+        <TextView
+            android:id="@+id/tvMisFavoritos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:text="@string/mis_favoritos"
+            app:layout_constraintStart_toStartOf="@+id/tvEmail"
+            app:layout_constraintTop_toBottomOf="@id/ivDivider3" />
+
+        <TextView
+            android:id="@+id/tvSinFavoritos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/anada_eventos_favoritos"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/lvMisFavoritos"
+            app:layout_constraintEnd_toEndOf="@+id/lvMisFavoritos"
+            app:layout_constraintStart_toStartOf="@+id/lvMisFavoritos"
+            app:layout_constraintTop_toBottomOf="@id/tvMisFavoritos" />
+
+        <ListView
+            android:id="@+id/lvMisFavoritos"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnSignOut"
+            app:layout_constraintTop_toBottomOf="@id/tvMisFavoritos" />
+
+        <Button
+            android:id="@+id/btnSignOut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/boton_redondeado"
+            android:padding="10dp"
+            android:text="@string/desconectar"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

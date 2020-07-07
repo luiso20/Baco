@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ComentariosFragment"
+    android:background="@color/primary_dark"
+    android:orientation="vertical">
+
+    <RatingBar
+        android:id="@+id/rbComentarios"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:stepSize="0.5"
+        android:numStars="5"/>
+
+    <EditText
+        android:id="@+id/etComentarios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/opinion"
+        android:layout_margin="10dp"
+        android:ems="10"
+        android:maxLength="150"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:autofillHints="" />
+
+    <Button
+        android:id="@+id/btnEnviarComentarios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary"
+        android:layout_margin="10dp"
+        android:text="@string/enviar" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvComentariosEventos"
+        android:layout_margin="10dp"
+        android:text="@string/comentarios"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"/>
+
+</LinearLayout>

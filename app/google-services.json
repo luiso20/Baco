@@ -1,0 +1,236 @@
+{
+  "project_info": {
+    "project_number": "511880579574",
+    "firebase_url": "https://baco-56dcb.firebaseio.com",
+    "project_id": "baco-56dcb",
+    "storage_bucket": "baco-56dcb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:511880579574:android:0c8d9e980c41809e371fd7",
+        "android_client_info": {
+          "package_name": "com.example.filtrobaco"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "511880579574-sa77eq67c1kviqt5msi9tt9upfvicqil.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.filtrobaco",
+            "certificate_hash": "0cc3da86b132544880f214641099d9a0a26526af"
+          }
+        },
+        {
+          "client_id": "511880579574-qilgihksv4ubm7t9sblg3qokpgouvk72.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.filtrobaco",
+            "certificate_hash": "3b7823915812d25003962686f2cb7d8c36251244"
+          }
+        },
+        {
+          "client_id": "511880579574-v7ouu1akv0cc5rul300rlbh4thqg9ae0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.filtrobaco",
+            "certificate_hash": "86ecc4fc87f3a95a232e86570eacbc7a2715162c"
+          }
+        },
+        {
+          "client_id": "511880579574-3qsp4kvj1d4ob7r1ooaa6v40l18hdk6e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.filtrobaco",
+            "certificate_hash": "37809f939b8a86e9e27bee7d7aad478a80488bb1"
+          }
+        },
+        {
+          "client_id": "511880579574-ses3b6lici03df4465c6e905h4pfsqe5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2gZq9b3Qwz8pkE8mDDQEp86tTMNaLxZs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "511880579574-ses3b6lici03df4465c6e905h4pfsqe5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:511880579574:android:641add72985e2631",
+        "android_client_info": {
+          "package_name": "edu.dam.aed.baco"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "511880579574-s1us35v1s4ujmfq5q4hu99bgcv27jklu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.dam.aed.baco",
+            "certificate_hash": "0cc3da86b132544880f214641099d9a0a26526af"
+          }
+        },
+        {
+          "client_id": "511880579574-ejhcpmrsji18a3s1r93mj74o43rmqc1i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.dam.aed.baco",
+            "certificate_hash": "3b7823915812d25003962686f2cb7d8c36251244"
+          }
+        },
+        {
+          "client_id": "511880579574-jhf54mi1nem1mfaqajvn1q12bv66ejem.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.dam.aed.baco",
+            "certificate_hash": "37809f939b8a86e9e27bee7d7aad478a80488bb1"
+          }
+        },
+        {
+          "client_id": "511880579574-tq38t7j3j5bkft2dfj00ut7hitfpfupk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.dam.aed.baco",
+            "certificate_hash": "86ecc4fc87f3a95a232e86570eacbc7a2715162c"
+          }
+        },
+        {
+          "client_id": "511880579574-ses3b6lici03df4465c6e905h4pfsqe5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2gZq9b3Qwz8pkE8mDDQEp86tTMNaLxZs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "511880579574-ses3b6lici03df4465c6e905h4pfsqe5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:511880579574:android:2a159189a7aa206c371fd7",
+        "android_client_info": {
+          "package_name": "edu.dam.firebase2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "511880579574-skusaathb57rb9ttbj536ed7cfliogoc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.dam.firebase2",
+            "certificate_hash": "37809f939b8a86e9e27bee7d7aad478a80488bb1"
+          }
+        },
+        {
+          "client_id": "511880579574-ses3b6lici03df4465c6e905h4pfsqe5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2gZq9b3Qwz8pkE8mDDQEp86tTMNaLxZs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "511880579574-ses3b6lici03df4465c6e905h4pfsqe5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:511880579574:android:0d0255a76ee39587371fd7",
+        "android_client_info": {
+          "package_name": "es.puntocoma.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "511880579574-ses3b6lici03df4465c6e905h4pfsqe5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2gZq9b3Qwz8pkE8mDDQEp86tTMNaLxZs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "511880579574-ses3b6lici03df4465c6e905h4pfsqe5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:511880579574:android:22d878bdf51a54f5371fd7",
+        "android_client_info": {
+          "package_name": "es.puntocomaapps.baco"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "511880579574-65446of1us0jovjfskid84rpi1d552mh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "es.puntocomaapps.baco",
+            "certificate_hash": "3b7823915812d25003962686f2cb7d8c36251244"
+          }
+        },
+        {
+          "client_id": "511880579574-ses3b6lici03df4465c6e905h4pfsqe5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2gZq9b3Qwz8pkE8mDDQEp86tTMNaLxZs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "511880579574-ses3b6lici03df4465c6e905h4pfsqe5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

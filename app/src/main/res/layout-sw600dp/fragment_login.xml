@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_margin="50dp"
+    tools:context=".LoginFragment">
+
+    <EditText
+        android:id="@+id/etEmailLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:inputType="textEmailAddress"
+        android:layout_marginBottom="10dp"
+        android:autofillHints="@string/email"
+        android:hint="@string/fui_email_hint"/>
+
+    <EditText
+        android:id="@+id/etPasswordLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:inputType="textPassword"
+        android:layout_marginBottom="10dp"
+        android:autofillHints="@string/password"
+        android:hint="@string/password_hint"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnEntrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:background="@drawable/boton_redondeado"
+            android:text="@string/iniciar_sesion" />
+
+        <Button
+            android:id="@+id/btnHuella"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:visibility="gone"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:text="Huella" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_marginEnd="10dp"
+            android:text="@string/aun_no_tiene_una_cuenta" />
+
+        <TextView
+            android:id="@+id/tvCrear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@color/colorAccent"
+            android:text="@string/crear_cuenta" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvReset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:textColor="@color/colorAccent"
+        android:text="Restablezca su contraseña" />
+</LinearLayout>

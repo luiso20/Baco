@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_margin="10dp"
+    tools:context=".RegistroFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/etNombreRegistro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:autofillHints="@string/nombre"
+            android:hint="@string/nombre_hint"
+            android:inputType="textPersonName"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"/>
+
+        <EditText
+            android:id="@+id/etApellidosRegistro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:autofillHints="@string/apellidos"
+            android:hint="@string/apellidos_hint"
+            android:inputType="textPersonName"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/etEmailRegistro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:autofillHints="@string/email"
+        android:hint="@string/fui_email_hint"
+        android:inputType="textEmailAddress" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/etPasswordRegistro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:autofillHints="@string/password"
+            android:hint="@string/password_hint"
+            android:inputType="textPassword"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"/>
+
+        <EditText
+            android:id="@+id/etPassword2Registro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:autofillHints="@string/password"
+            android:hint="@string/password_hint2"
+            android:inputType="textPassword"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnCrearUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        android:background="@drawable/button_disabled"
+        android:enabled="false"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:text="@string/crear_usuario" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/cbTerms"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/tvTerms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:padding="3dp"
+            android:text="@string/terms_and_privacy"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvCuenta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/ya_tiene_una_cuenta"
+            android:layout_marginEnd="10dp"
+            android:gravity="end"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/tvAcceder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/acceda_ahora"
+            android:textColor="@color/colorAccent"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"/>
+    </LinearLayout>
+</LinearLayout>

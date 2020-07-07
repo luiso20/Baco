@@ -1,0 +1,2 @@
+rootProject.name='Baco'
+include ':app'
