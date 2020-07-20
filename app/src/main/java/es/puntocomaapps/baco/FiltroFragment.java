@@ -114,7 +114,7 @@ public class FiltroFragment extends Fragment {
                                 UnifiedNativeAdView adView = (UnifiedNativeAdView) LayoutInflater.from(viewGroup.getContext())
                                         .inflate(R.layout.ad_unified, viewGroup, false);
 
-                                AdLoader.Builder builder = new AdLoader.Builder(Objects.requireNonNull(getContext()), ADMOB_AD_UNIT_ID_TEST);
+                                AdLoader.Builder builder = new AdLoader.Builder(Objects.requireNonNull(getContext()), ADMOB_AD_UNIT_ID);
 
                                 builder.forUnifiedNativeAd(unifiedNativeAd -> {
                                     // You must call destroy on old ads when you are done with them,

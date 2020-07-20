@@ -243,7 +243,7 @@ public class MainActivity extends AppCompatActivity {
                     UnifiedNativeAdView adView = (UnifiedNativeAdView) LayoutInflater.from(viewGroup.getContext())
                             .inflate(R.layout.ad_unified, viewGroup, false);
 
-                    AdLoader.Builder builder = new AdLoader.Builder(getApplicationContext(), ADMOB_AD_UNIT_ID_TEST);
+                    AdLoader.Builder builder = new AdLoader.Builder(getApplicationContext(), ADMOB_AD_UNIT_ID);
 
                     builder.forUnifiedNativeAd(unifiedNativeAd -> {
                         // You must call destroy on old ads when you are done with them,
