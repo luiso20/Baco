@@ -1,6 +1,8 @@
 package es.puntocomaapps.baco;
 
-public class Comentario {
+import java.io.Serializable;
+
+public class Comentario implements Serializable {
 
     private String comentario;
     private String fecha;

@@ -21,11 +21,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.ui.auth.util.FirebaseAuthError;
 import com.google.android.gms.common.internal.Constants;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -76,10 +78,10 @@ public class RegistroFragment extends Fragment {
             public void onClick(View v) {
                 if (cbTerms.isChecked()) {
                     btnCrearUsuario.setEnabled(true);
-                    btnCrearUsuario.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.boton_redondeado));
+                    btnCrearUsuario.setBackground(ContextCompat.getDrawable(Objects.requireNonNull(getContext()), R.drawable.boton_redondeado));
                 } else {
                     btnCrearUsuario.setEnabled(false);
-                    btnCrearUsuario.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.button_disabled));
+                    btnCrearUsuario.setBackground(ContextCompat.getDrawable(Objects.requireNonNull(getContext()), R.drawable.button_disabled));
                 }
             }
         });
@@ -101,7 +103,11 @@ public class RegistroFragment extends Fragment {
                                             @Override
                                             public void onComplete(@NonNull Task<AuthResult> task) {
                                                 if(!task.isSuccessful()) {
-                                                    Toast.makeText(getContext(), "Algo ha fallado. Por favor, inténtelo de nuevo", Toast.LENGTH_LONG).show();
+                                                    if (task.getException() instanceof FirebaseAuthUserCollisionException) {
+                                                        Toast.makeText(getContext(), "Esta dirección de correo ya está registrada", Toast.LENGTH_LONG).show();
+                                                    } else {
+                                                        Toast.makeText(getContext(), "Algo ha fallado. Por favor, inténtelo de nuevo", Toast.LENGTH_LONG).show();
+                                                    }
                                                 } else {
                                                     Toast.makeText(getContext(), "Usuario creado con éxito!", Toast.LENGTH_LONG).show();
                                                     mAuth.signInWithEmailAndPassword(etEmailRegistro.getText().toString(), etPasswordRegistro.getText().toString());

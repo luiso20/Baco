@@ -42,7 +42,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         holder.txMunicipio.setText(eventList.get(position).getMunicipio());
 
         @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        Date date = null;
+        Date date = new Date();
         try {
             date = sdf.parse(eventList.get(position).getFecha());
         } catch (ParseException ex) {
@@ -50,8 +50,10 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         }
 
         @SuppressLint("SimpleDateFormat") SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
-        String fechaFormato = formato.format(date);
-        holder.txFecha.setText(fechaFormato);
+        if (date != null) {
+            String fechaFormato = formato.format(date);
+            holder.txFecha.setText(fechaFormato);
+        }
     }
 
     @Override

@@ -23,12 +23,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.RatingBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -36,17 +32,13 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdLoader;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.RequestConfiguration;
-import com.google.android.gms.ads.VideoController;
 import com.google.android.gms.ads.VideoOptions;
-import com.google.android.gms.ads.formats.MediaView;
 import com.google.android.gms.ads.formats.NativeAdOptions;
 import com.google.android.gms.ads.formats.UnifiedNativeAd;
 import com.google.android.gms.ads.formats.UnifiedNativeAdView;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -54,7 +46,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
-import com.google.firebase.dynamiclinks.PendingDynamicLinkData;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -62,13 +55,9 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
-import java.util.Locale;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
@@ -77,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
     public static final int TYPE_AD = 1;
 
     private static final String ADMOB_AD_UNIT_ID = "ca-app-pub-3170770616008852/3051289383";
-    private static final String ADMOB_AD_UNIT_ID_TEST = "ca-app-pub-3940256099942544/2247696110";
+    //private static final String ADMOB_AD_UNIT_ID_TEST = "ca-app-pub-3940256099942544/2247696110";
 
     private UnifiedNativeAd nativeAd;
 
@@ -94,6 +83,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         MobileAds.initialize(this, initializationStatus -> {});
+
+        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener( MainActivity.this,  new OnSuccessListener<InstanceIdResult>() {
+            @Override
+            public void onSuccess(InstanceIdResult instanceIdResult) {
+                String newToken = instanceIdResult.getToken();
+                Log.e("newToken", newToken);
+
+            }
+        });
 
         FirebaseDynamicLinks.getInstance()
                 .getDynamicLink(getIntent())
@@ -163,8 +161,13 @@ public class MainActivity extends AppCompatActivity {
         pBarMain = findViewById(R.id.pBarMain);
 
         Date date = new Date();
-        @SuppressLint("SimpleDateFormat") DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String fechaActual = dateFormat.format(date);
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String fechaActual = "";
+        try {
+            fechaActual = dateFormat.format(date);
+        } catch (Exception e) {
+            Log.e(TAG, "Error parsing date: " + date);
+        }
 
         BaseDatosFirebase bdFirebase = new BaseDatosFirebase();
         queryEventos = bdFirebase.getDbReference().child("evento").orderByChild("fecha").startAt(fechaActual);
@@ -268,11 +271,6 @@ public class MainActivity extends AppCompatActivity {
                     builder.withNativeAdOptions(adOptions);
 
                     AdLoader adLoader = builder.withAdListener(new AdListener() {
-                        @Override
-                        public void onAdFailedToLoad(int i) {
-                            Toast.makeText(MainActivity.this, "Failed to load native ad: "
-                                    + i, Toast.LENGTH_SHORT).show();
-                        }
                     }).build();
 
                     adLoader.loadAd(new AdRequest.Builder().build());
@@ -334,9 +332,11 @@ public class MainActivity extends AppCompatActivity {
                         Evento evento = snapshot.getValue(Evento.class);
                         assert evento != null;
 
-                        if (evento.getKeywords().contains(query)) {
-                            eventList.add(evento);
-                            listAdapter.notifyDataSetChanged();
+                        if (evento.getKeywords() != null) {
+                            if (evento.getKeywords().contains(query)) {
+                                eventList.add(evento);
+                                listAdapter.notifyDataSetChanged();
+                            }
                         }
                     }
                 }
@@ -347,7 +347,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        //showEvents(firebaseSearchQuery);
     }
 
     public String getVersionActual(Context ctx){
