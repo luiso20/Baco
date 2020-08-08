@@ -35,6 +35,7 @@
     <string name="e_mail">E-mail: </string>
     <string name="imagen_de_evento">Event image</string>
     <string name="icono_calendario">Calendar Icon</string>
+    <string name="reset_password">Reset your password</string>
 
     <string name="title_activity_evento_imagen">ImageEvent</string>
     <string name="cancelar">Cancel</string>
@@ -116,9 +117,15 @@
     <string name="note">(Fingerprint login makes the application login much faster. Your device must have at least one fingerprint registered in the device settings)</string>
     <string name="activity_home_desc">You have successfully logged in with fingerprint authentication</string>
     <string name="activity_home_note">Close and reopen the app to see the fingerprint authentication screen again</string>
+    <string name="log_fingerprint">Log in with your fingerprint</string>
 
     <string name="search_hint">Search an event</string>
     <string name="busqueda">Search</string>
     <string name="ad_attribution">Ad</string>
     <string name="ad_icon">Advertising icon</string>
+
+    <!-- Envío de email -->
+    <string name="event_suggestion">Event Suggestion</string>
+    <string name="event_data">I know of an event that is going to take place in my municipality, the data is:</string>
+    <string name="send_email">Send email…</string>
 </resources>

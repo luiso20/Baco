@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
             android:layout_marginBottom="10dp"
+            android:autofillHints="email"
             android:hint="@string/fui_email_hint"/>
 
         <EditText
@@ -25,12 +26,14 @@
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:layout_marginBottom="10dp"
+            android:autofillHints="password"
             android:hint="@string/password_hint"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            style="?android:attr/buttonBarStyle"
             android:orientation="horizontal">
 
             <Button
@@ -39,6 +42,7 @@
                 android:layout_height="wrap_content"
                 android:padding="10dp"
                 android:background="@drawable/boton_redondeado"
+                style="?android:buttonBarButtonStyle"
                 android:text="@string/iniciar_sesion" />
 
             <Button
@@ -47,7 +51,8 @@
                 android:layout_height="wrap_content"
                 android:visibility="gone"
                 android:padding="10dp"
-                android:text="Acceda con su huella" />
+                style="?android:buttonBarButtonStyle"
+                android:text="@string/log_fingerprint" />
 
         </LinearLayout>
 
@@ -79,7 +84,7 @@
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
             android:textColor="@color/colorAccent"
-            android:text="Restablezca su contraseña" />
+            android:text="@string/reset_password" />
     </LinearLayout>
 
 </FrameLayout>

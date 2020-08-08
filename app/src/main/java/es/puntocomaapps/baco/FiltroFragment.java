@@ -199,11 +199,11 @@ public class FiltroFragment extends Fragment {
 
     private void enviarEmail() {
         Intent emailIntent = new Intent(Intent.ACTION_VIEW);
-        Uri data = Uri.parse("mailto:?subject=" + "Sugerencia de evento" + "&body=" + "Sé de un evento que se va a realizar en mi municipio, los datos son: " +
+        Uri data = Uri.parse("mailto:?subject=" + R.string.event_suggestion + "&body=" + R.string.event_data +
                 "&to=" + "events@puntocomaapps.es");
         emailIntent.setData(data);
         try {
-            startActivity(Intent.createChooser(emailIntent, "Enviar email..."));
+            startActivity(Intent.createChooser(emailIntent, Objects.requireNonNull(getContext()).getText(R.string.send_email)));
         } catch (android.content.ActivityNotFoundException ex) {
             Toast.makeText(getContext(), R.string.dialog_email_not_found, Toast.LENGTH_LONG).show();
         }

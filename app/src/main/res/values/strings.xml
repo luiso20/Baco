@@ -34,6 +34,7 @@
     <string name="e_mail">E-mail: </string>
     <string name="imagen_de_evento">Imagen de evento</string>
     <string name="icono_calendario">Icono calendario</string>
+    <string name="reset_password">Restablezca su contraseña</string>
 
     <string name="title_activity_evento_imagen">EventoImagen</string>
     <string name="cancelar">Cancelar</string>
@@ -115,9 +116,16 @@
     <string name="note">(El inicio de sesión con la huella dactilar hace que la aplicación inicie sesión mucho más rápido. Su dispositivo debe tener al menos una huella digital registrada en la configuración del dispositivo)</string>
     <string name="activity_home_desc">Ha iniciado sesión con éxito con la autenticación de huellas dactilares</string>
     <string name="activity_home_note">Cierre y vuelva a abrir la aplicación para volver a ver la pantalla de autenticación de huellas dactilares</string>
+    <string name="log_fingerprint">Acceda con su huella</string>
 
     <string name="search_hint">Busca un evento</string>
     <string name="busqueda">Búsqueda</string>
     <string name="ad_attribution">Ad</string>
     <string name="ad_icon">Icono publicidad</string>
+    
+    <!-- Envío de email -->
+    <string name="event_suggestion">Sugerencia de evento</string>
+    <string name="event_data">Sé de un evento que se va a realizar en mi municipio, los datos son: </string>
+    <string name="send_email">Enviar email…</string>
+
 </resources>
