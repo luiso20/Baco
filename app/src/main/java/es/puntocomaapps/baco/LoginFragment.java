@@ -75,17 +75,17 @@ public class LoginFragment extends Fragment {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
-                                        Toast.makeText(getContext(), "Ha iniciado sesión", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(getContext(), R.string.dialog_session_start, Toast.LENGTH_LONG).show();
                                     } else {
-                                        Toast.makeText(getContext(), "No hay usuarios registrados con esos datos. Por favor, inténtelo de nuevo", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(getContext(), R.string.dialog_user_not_found, Toast.LENGTH_LONG).show();
                                     }
                                 }
                             });
                 } else if(email.equals("")) {
-                    etEmailLogin.setError("Por favor, introduzca una dirección de e-mail");
+                    etEmailLogin.setError(Objects.requireNonNull(getContext()).getText(R.string.dialog_email_not_typed));
                     etEmailLogin.requestFocus();
                 } else {
-                    etPasswordLogin.setError("Por favor, introduzca su contraseña");
+                    etPasswordLogin.setError(Objects.requireNonNull(getContext()).getText(R.string.dialog_set_password));
                     etPasswordLogin.requestFocus();
                 }
             }

@@ -1,17 +1,12 @@
 package es.puntocomaapps.baco;
 
-import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
-import android.provider.SyncStateContract;
-import android.text.style.ClickableSpan;
 import android.text.util.Linkify;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,8 +16,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.firebase.ui.auth.util.FirebaseAuthError;
-import com.google.android.gms.common.internal.Constants;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -30,8 +23,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import org.w3c.dom.Text;
 
 import java.util.HashMap;
 import java.util.Objects;
@@ -104,12 +95,12 @@ public class RegistroFragment extends Fragment {
                                             public void onComplete(@NonNull Task<AuthResult> task) {
                                                 if(!task.isSuccessful()) {
                                                     if (task.getException() instanceof FirebaseAuthUserCollisionException) {
-                                                        Toast.makeText(getContext(), "Esta dirección de correo ya está registrada", Toast.LENGTH_LONG).show();
+                                                        Toast.makeText(getContext(), R.string.dialog_email_exists, Toast.LENGTH_LONG).show();
                                                     } else {
-                                                        Toast.makeText(getContext(), "Algo ha fallado. Por favor, inténtelo de nuevo", Toast.LENGTH_LONG).show();
+                                                        Toast.makeText(getContext(), R.string.dialog_general_error, Toast.LENGTH_LONG).show();
                                                     }
                                                 } else {
-                                                    Toast.makeText(getContext(), "Usuario creado con éxito!", Toast.LENGTH_LONG).show();
+                                                    Toast.makeText(getContext(), R.string.dialog_user_success, Toast.LENGTH_LONG).show();
                                                     mAuth.signInWithEmailAndPassword(etEmailRegistro.getText().toString(), etPasswordRegistro.getText().toString());
 
                                                     DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -135,14 +126,14 @@ public class RegistroFragment extends Fragment {
                                         });
 
                         } else {
-                            Toast.makeText(getContext(), "Introduzca una contraseña de 8 o más caracteres", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getContext(), R.string.dialog_password_eight_characters, Toast.LENGTH_LONG).show();
                         }
                     } else {
-                        Toast.makeText(getContext(), "Las contraseñas no coinciden", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getContext(), R.string.dialog_password_mismatch, Toast.LENGTH_LONG).show();
                     }
 
                 } else {
-                    Toast.makeText(getContext(), "Por favor, rellene todos los campos", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), R.string.dialog_fill_fields, Toast.LENGTH_LONG).show();
                 }
             }
         });

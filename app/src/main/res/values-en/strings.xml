@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!--General-->
+    <string name="app_name">Baco</string>
+    <string name="inicio">Start</string>
+    <string name="filtro">Filter</string>
+    <string name="perfil">Profile</string>
+
+    <!-- Perfil -->
+    <string name="ajustes">settings</string>
+    <string name="evento_destacado">featured Event</string>
+    <string name="login">I\'m already a user</string>
+    <string name="signin">Create Account</string>
+    <string name="usuario">User:</string>
+    <string name="usuario_hint">user</string>
+    <string name="password">Password:</string>
+    <string name="password_hint">Password</string>
+    <string name="aceptar">Accept</string>
+    <string name="password_repeat">Repeat Password:</string>
+    <string name="enviar">Send</string>
+    <string name="nombre">Name:</string>
+    <string name="apellidos">Surname:</string>
+    <string name="title_activity_prueba">Test</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="portada">Cover Page</string>
+    <string name="titulo">Title</string>
+    <string name="fecha">Date</string>
+    <string name="eventos">Events</string>
+    <string name="lugar">Place</string>
+    <string name="hora">Hour</string>
+    <string name="descripcion">Description</string>
+    <string name="comentarios">Comments</string>
+    <string name="e_mail">E-mail: </string>
+    <string name="imagen_de_evento">Event image</string>
+    <string name="icono_calendario">Calendar Icon</string>
+
+    <string name="title_activity_evento_imagen">ImageEvent</string>
+    <string name="cancelar">Cancel</string>
+
+    <string name="desconectar">Disconnect</string>
+    <string name="est_s_conectado_como_user">You are connected as $user</string>
+    <string name="precio">Price</string>
+    <string name="precio_del_evento">Event price: </string>
+    <string name="_1">1</string>
+
+    <string name="login_comment">Login to rate</string>
+    <string name="Favoritos">favorites</string>
+    <string name="ubicacion">location</string>
+    <string name="municipio">municipality</string>
+    <string name="opinion">Comment on this event</string>
+    <string name="sugerencias_y_actualizaciones">suggestions and updates</string>
+    <string name="descripcion_flecha">Arrow pointing to Spinner</string>
+    <string name="descripcion_filtro">¿Are you interested in a particular municipality? \nHere you can choose yours!</string>
+    <string name="valoracion">User rating</string>
+    <string name="boton_para_valorar">Button to rate</string>
+    <string name="boton_para_ir_a_comprar_entrada">Button to go buy ticket</string>
+
+    <string name="nombre_hint">Name</string>
+    <string name="apellidos_hint">Surname</string>
+    <string name="password_hint2">Retype your password</string>
+    <string name="crear_usuario">Create user</string>
+    <string name="ya_tiene_una_cuenta">Already have an account?</string>
+    <string name="acceda_ahora">Access now</string>
+    <string name="mis_favoritos">My favorites:</string>
+
+    <string name="iniciar_sesion">Log in</string>
+    <string name="crear_cuenta">Create one</string>
+    <string name="aun_no_tiene_una_cuenta">Don\'t have an account yet?</string>
+    <string name="usuario_">User</string>
+    <string name="email">Email</string>
+    <string name="sin_eventos">We do not have events for this municipality :(</string>
+    <string name="prueba_manana">Try tomorrow! Or suggest us some:</string>
+    <string name="email_eventos">events@puntocomaapps.es</string>
+    <string name="hora_no_definida">Undefined time</string>
+    <string name="anada_eventos_favoritos">Add your favorite events.</string>
+    <string name="restablecer_contrasena">Restore password</string>
+    <string name="boton_para_compartir">Share button</string>
+    <string name="terms_and_privacy">I have read and agree the <a href='http://puntocomaapps.es/termsandprivacy.html'>conditions of use and the privacy policies</a> of the application</string>
+
+    <!-- Diálogos de aviso -->
+    <string name="dialog_message1">You will modify your username by</string>
+    <string name="dialog_message2">, Do you want to continue?</string>
+    <string name="dialog_title">Beware!</string>
+    <string name="dialog_message_delete_Fav">Are you sure to delete this favorite?</string>
+    <string name="dialog_favs_start_session">Login to bookmark</string>
+    <string name="dialog_error_native_ad">Failed to load native ad: </string>
+    <string name="dialog_email_not_found">I can\'t find any email client installed</string>
+    <string name="dialog_auth_error">Authentication error: </string>
+    <string name="dialog_session_start">You have logged in</string>
+    <string name="dialog_user_not_found">There are no registered users with this data. Please try again</string>
+    <string name="dialog_email_not_typed">Please enter an email address</string>
+    <string name="dialog_set_password">Please enter your password</string>
+    <string name="dialog_logout_success">You have successfully disconnected</string>
+    <string name="dialog_email_exists">This email address is already registered</string>
+    <string name="dialog_general_error">Something has gone wrong. Please try again</string>
+    <string name="dialog_user_success">User created successfully!</string>
+    <string name="dialog_password_eight_characters">Enter a password of 8 or more characters</string>
+    <string name="dialog_password_mismatch">Passwords do not match</string>
+    <string name="dialog_fill_fields">Please fill in all the fields</string>
+    <string name="dialog_wait_a_moment" tools:ignore="Typos">Wait a moment…</string>
+    <string name="dialog_put_email">You must enter the email</string>
+    <string name="dialog_send_email_password">An email has been sent to reset your password</string>
+    <string name="dialog_not_send_password">The password reset email could not be sent</string>
+
+    <!--Ad unit ID-->
+    <string name="admob_banner_ad">ca-app-pub-3170770616008852/4215977100</string>
+    <string name="admob_native_ad">ca-app-pub-3170770616008852/3051289383</string>
+    <string name="admob_banner_prueba">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="admob_native_prueba">ca-app-pub-3940256099942544/2247696110</string>
+
+    <!-- Inicio de sesión con huella -->
+    <string name="title_fingerprint">One touch login</string>
+    <string name="desc_fingerprint">Place your fingertip on the scanner to verify your identity</string>
+    <string name="note">(Fingerprint login makes the application login much faster. Your device must have at least one fingerprint registered in the device settings)</string>
+    <string name="activity_home_desc">You have successfully logged in with fingerprint authentication</string>
+    <string name="activity_home_note">Close and reopen the app to see the fingerprint authentication screen again</string>
+
+    <string name="search_hint">Search an event</string>
+    <string name="busqueda">Search</string>
+    <string name="ad_attribution">Ad</string>
+    <string name="ad_icon">Advertising icon</string>
+</resources>

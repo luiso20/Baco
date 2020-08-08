@@ -28,8 +28,6 @@ import com.google.android.gms.ads.VideoOptions;
 import com.google.android.gms.ads.formats.NativeAdOptions;
 import com.google.android.gms.ads.formats.UnifiedNativeAd;
 import com.google.android.gms.ads.formats.UnifiedNativeAdView;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -39,12 +37,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Objects;
-
-import static com.firebase.ui.auth.AuthUI.getApplicationContext;
 
 public class FiltroFragment extends Fragment {
 
@@ -140,7 +134,7 @@ public class FiltroFragment extends Fragment {
                                 AdLoader adLoader = builder.withAdListener(new AdListener() {
                                     @Override
                                     public void onAdFailedToLoad(int i) {
-                                        Toast.makeText(getContext(), "Failed to load native ad: "
+                                        Toast.makeText(getContext(), R.string.dialog_error_native_ad
                                                 + i, Toast.LENGTH_SHORT).show();
                                     }
                                 }).build();
@@ -211,7 +205,7 @@ public class FiltroFragment extends Fragment {
         try {
             startActivity(Intent.createChooser(emailIntent, "Enviar email..."));
         } catch (android.content.ActivityNotFoundException ex) {
-            Toast.makeText(getContext(), "No encuentro ningún cliente de correo instalado", Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(), R.string.dialog_email_not_found, Toast.LENGTH_LONG).show();
         }
     }
 

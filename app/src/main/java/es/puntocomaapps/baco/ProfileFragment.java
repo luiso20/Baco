@@ -129,7 +129,7 @@ public class ProfileFragment extends Fragment {
                     .replace(R.id.profileContainer, new LoginFragment())
                     .addToBackStack(null)
                     .commit();
-            Toast.makeText(getContext(), "Ha desconectado con éxito", Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(), R.string.dialog_logout_success, Toast.LENGTH_LONG).show();
         });
         return view;
     }

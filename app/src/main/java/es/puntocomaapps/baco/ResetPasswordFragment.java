@@ -51,12 +51,12 @@ public class ResetPasswordFragment extends Fragment {
                 email = etEmailReset.getText().toString();
 
                 if(!email.isEmpty()) {
-                    mDialog.setMessage("Espere un momento...");
+                    mDialog.setMessage(Objects.requireNonNull(getContext()).getText(R.string.dialog_wait_a_moment));
                     mDialog.setCanceledOnTouchOutside(false);
                     mDialog.show();
                     resetPassword();
                 } else {
-                    Toast.makeText(getContext(), "Debe ingresar el email", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), R.string.dialog_wait_a_moment, Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -72,7 +72,7 @@ public class ResetPasswordFragment extends Fragment {
             public void onComplete(@NonNull Task<Void> task) {
 
                 if(task.isSuccessful()) {
-                    Toast.makeText(getContext(), "Se ha enviado un correo para restablecer su contraseña", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), R.string.dialog_send_email_password, Toast.LENGTH_SHORT).show();
                     try {
                         Objects.requireNonNull(getActivity()).getSupportFragmentManager()
                                 .beginTransaction()
@@ -83,7 +83,7 @@ public class ResetPasswordFragment extends Fragment {
                         e.getMessage();
                     }
                 } else {
-                    Toast.makeText(getContext(), "No se pudo enviar el correo de restablecimiento de contraseña", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), R.string.dialog_not_send_password, Toast.LENGTH_SHORT).show();
                 }
 
                 mDialog.dismiss();

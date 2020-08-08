@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!--General-->
     <string name="app_name">Baco</string>
     <string name="inicio">Inicio</string>
@@ -75,7 +75,7 @@
     <string name="hora_no_definida">Hora no definida</string>
     <string name="anada_eventos_favoritos">Añada sus eventos favoritos.</string>
     <string name="restablecer_contrasena">Restablecer contraseña</string>
-    <string name="boton_para_compartir">boton para compartir</string>
+    <string name="boton_para_compartir">botón para compartir</string>
     <string name="terms_and_privacy">He leído y acepto las <a href='http://puntocomaapps.es/termsandprivacy.html'>condiciones de uso y las políticas de privacidad</a> de la aplicación</string>
 
     <!-- Diálogos de aviso -->
@@ -83,6 +83,25 @@
     <string name="dialog_message2">, ¿Quiere continuar?</string>
     <string name="dialog_title">¡Atención!</string>
     <string name="dialog_message_delete_Fav">¿Está seguro de eliminar este favorito?</string>
+    <string name="dialog_favs_start_session">Inicie sesión para marcar favoritos</string>
+    <string name="dialog_error_native_ad">No se pudo cargar el anuncio nativo: </string>
+    <string name="dialog_email_not_found">No encuentro ningún cliente de correo instalado</string>
+    <string name="dialog_auth_error">Error de autenticación: </string>
+    <string name="dialog_session_start">Ha iniciado sesión</string>
+    <string name="dialog_user_not_found">No hay usuarios registrados con esos datos. Por favor, inténtelo de nuevo</string>
+    <string name="dialog_email_not_typed">Por favor, introduzca una dirección de e-mail</string>
+    <string name="dialog_set_password">Por favor, introduzca su contraseña</string>
+    <string name="dialog_logout_success">Ha desconectado con éxito</string>
+    <string name="dialog_email_exists">Esta dirección de correo ya está registrada</string>
+    <string name="dialog_general_error">Algo ha fallado. Por favor, inténtelo de nuevo</string>
+    <string name="dialog_user_success">Usuario creado con éxito!</string>
+    <string name="dialog_password_eight_characters">Introduzca una contraseña de 8 o más caracteres</string>
+    <string name="dialog_password_mismatch">Las contraseñas no coinciden</string>
+    <string name="dialog_fill_fields">Por favor, rellene todos los campos</string>
+    <string name="dialog_wait_a_moment" tools:ignore="Typos">Espere un momento…</string>
+    <string name="dialog_put_email">Debe ingresar el email</string>
+    <string name="dialog_send_email_password">Se ha enviado un correo para restablecer su contraseña</string>
+    <string name="dialog_not_send_password">No se pudo enviar el correo de restablecimiento de contraseña</string>
 
     <!--Ad unit ID-->
     <string name="admob_banner_ad">ca-app-pub-3170770616008852/4215977100</string>
