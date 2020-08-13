@@ -1,5 +1,7 @@
 package es.puntocomaapps.baco;
 
+import androidx.annotation.NonNull;
+
 import java.io.Serializable;
 
 public class Evento implements Serializable {
@@ -127,5 +129,11 @@ public class Evento implements Serializable {
 
     public void setOrdenMunYFecha(String ordenMunYFecha) {
         this.ordenMunYFecha = ordenMunYFecha;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return "[Título: " + titulo + ", fecha: " + fecha + "]";
     }
 }

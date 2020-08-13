@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="municipios_array">
+        <item>Gemeinde auswählen:</item>
+        <item>Agaete</item>
+        <item>Artenara</item>
+        <item>Agüimes</item>
+        <item>La Aldea de San Nicolás</item>
+        <item>Artenara</item>
+        <item>Arucas</item>
+        <item>Firgas</item>
+        <item>Gáldar</item>
+        <item>Ingenio</item>
+        <item>Mogán</item>
+        <item>Moya</item>
+        <item>Las Palmas de Gran Canaria</item>
+        <item>San Bartolomé de Tirajana</item>
+        <item>Santa Lucía de Tirajana</item>
+        <item>Santa Brígida</item>
+        <item>Santa María de Guía</item>
+        <item>Tejeda</item>
+        <item>Telde</item>
+        <item>Teror</item>
+        <item>Valleseco</item>
+        <item>Valsequillo</item>
+    </string-array>
+</resources>

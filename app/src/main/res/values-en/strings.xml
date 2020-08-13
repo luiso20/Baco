@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!--General-->
-    <string name="app_name">Baco</string>
     <string name="inicio">Start</string>
     <string name="filtro">Filter</string>
     <string name="perfil">Profile</string>
@@ -44,7 +43,6 @@
     <string name="est_s_conectado_como_user">You are connected as $user</string>
     <string name="precio">Price</string>
     <string name="precio_del_evento">Event price: </string>
-    <string name="_1">1</string>
 
     <string name="login_comment">Login to rate</string>
     <string name="Favoritos">favorites</string>
@@ -73,7 +71,6 @@
     <string name="email">Email</string>
     <string name="sin_eventos">We do not have events for this municipality :(</string>
     <string name="prueba_manana">Try tomorrow! Or suggest us some:</string>
-    <string name="email_eventos">events@puntocomaapps.es</string>
     <string name="hora_no_definida">Undefined time</string>
     <string name="anada_eventos_favoritos">Add your favorite events.</string>
     <string name="restablecer_contrasena">Restore password</string>
@@ -104,12 +101,9 @@
     <string name="dialog_put_email">You must enter the email</string>
     <string name="dialog_send_email_password">An email has been sent to reset your password</string>
     <string name="dialog_not_send_password">The password reset email could not be sent</string>
+    <string name="dialog_check_email">We have sent you a verification email. Please check your email</string>
 
     <!--Ad unit ID-->
-    <string name="admob_banner_ad">ca-app-pub-3170770616008852/4215977100</string>
-    <string name="admob_native_ad">ca-app-pub-3170770616008852/3051289383</string>
-    <string name="admob_banner_prueba">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="admob_native_prueba">ca-app-pub-3940256099942544/2247696110</string>
 
     <!-- Inicio de sesión con huella -->
     <string name="title_fingerprint">One touch login</string>
@@ -121,11 +115,11 @@
 
     <string name="search_hint">Search an event</string>
     <string name="busqueda">Search</string>
-    <string name="ad_attribution">Ad</string>
     <string name="ad_icon">Advertising icon</string>
 
     <!-- Envío de email -->
     <string name="event_suggestion">Event Suggestion</string>
     <string name="event_data">I know of an event that is going to take place in my municipality, the data is:</string>
     <string name="send_email">Send email…</string>
+    <string name="check_email">Check your email to continue</string>
 </resources>

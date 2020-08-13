@@ -18,8 +18,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="150dp"
                 android:contentDescription="@string/eventos"
+                android:alpha="1.0"
                 android:scaleType="fitXY"
                 tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageView
+                android:id="@+id/ivSoldOut"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="35dp"
+                android:alpha="0.0"
+                android:contentDescription="@string/eventos"
+                android:scaleType="fitXY"
+                tools:srcCompat="@drawable/ic_soldout" />
 
             <TextView
                 android:id="@+id/lblTituloModelo"

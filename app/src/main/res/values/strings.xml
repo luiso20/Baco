@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!--General-->
-    <string name="app_name">Baco</string>
+    <string name="app_name" translatable="false">Baco</string>
     <string name="inicio">Inicio</string>
     <string name="filtro">Filtro</string>
     <string name="perfil">Perfil</string>
@@ -43,7 +43,7 @@
     <string name="est_s_conectado_como_user">Estás conectado como $user</string>
     <string name="precio">Precio</string>
     <string name="precio_del_evento">Precio del evento: </string>
-    <string name="_1">1</string>
+    <string name="_1" translatable="false">1</string>
 
     <string name="login_comment">Inicie sesión para valorar</string>
     <string name="Favoritos">favoritos</string>
@@ -72,7 +72,7 @@
     <string name="email">Email</string>
     <string name="sin_eventos">No tenemos eventos para este municipio :(</string>
     <string name="prueba_manana">¡Prueba mañana! O sugiérenos alguno:</string>
-    <string name="email_eventos">events@puntocomaapps.es</string>
+    <string name="email_eventos" translatable="false">events@puntocomaapps.es</string>
     <string name="hora_no_definida">Hora no definida</string>
     <string name="anada_eventos_favoritos">Añada sus eventos favoritos.</string>
     <string name="restablecer_contrasena">Restablecer contraseña</string>
@@ -103,12 +103,13 @@
     <string name="dialog_put_email">Debe ingresar el email</string>
     <string name="dialog_send_email_password">Se ha enviado un correo para restablecer su contraseña</string>
     <string name="dialog_not_send_password">No se pudo enviar el correo de restablecimiento de contraseña</string>
+    <string name="dialog_check_email">Le hemos enviado un e-mail de verificación. Por favor, revise su correo</string>
 
     <!--Ad unit ID-->
-    <string name="admob_banner_ad">ca-app-pub-3170770616008852/4215977100</string>
-    <string name="admob_native_ad">ca-app-pub-3170770616008852/3051289383</string>
-    <string name="admob_banner_prueba">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="admob_native_prueba">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="admob_banner_ad" translatable="false">ca-app-pub-3170770616008852/4215977100</string>
+    <string name="admob_native_ad" translatable="false">ca-app-pub-3170770616008852/3051289383</string>
+    <string name="admob_banner_prueba" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="admob_native_prueba" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
 
     <!-- Inicio de sesión con huella -->
     <string name="title_fingerprint">Logueo con un toque</string>
@@ -120,12 +121,13 @@
 
     <string name="search_hint">Busca un evento</string>
     <string name="busqueda">Búsqueda</string>
-    <string name="ad_attribution">Ad</string>
+    <string name="ad_attribution" translatable="false">Ad</string>
     <string name="ad_icon">Icono publicidad</string>
     
     <!-- Envío de email -->
     <string name="event_suggestion">Sugerencia de evento</string>
     <string name="event_data">Sé de un evento que se va a realizar en mi municipio, los datos son: </string>
     <string name="send_email">Enviar email…</string>
+    <string name="check_email">Verifique su correo para continuar</string>
 
 </resources>
