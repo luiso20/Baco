@@ -98,7 +98,7 @@
     <string name="activity_home_desc">Sie haben sich erfolgreich mit der Fingerabdruckauthentifizierung angemeldet</string>
     <string name="activity_home_note">Schließen Sie die App und öffnen Sie sie erneut, um den Bildschirm zur Authentifizierung von Fingerabdrücken erneut anzuzeigen</string>
     <string name="log_fingerprint">Zugriff mit Ihrem Fingerabdruck</string>
-    <string name="search_hint">Suchen Sie ein Ereignis</string>
+    <string name="search_hint">Suche nach Ereignis, Kategorie, Ort…</string>
     <string name="busqueda">Suche</string>
     <string name="ad_icon">Werbesymbol</string>
     <string name="event_suggestion">Veranstaltungsvorschlag</string>
