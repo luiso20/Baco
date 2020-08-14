@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.Uri;
@@ -202,7 +203,7 @@ public class EventosActivity extends AppCompatActivity {
         });
 
         final Task<ShortDynamicLink> shortLinkTask = FirebaseDynamicLinks.getInstance().createDynamicLink()
-                .setLongLink(generateContentLink(id, titulo, foto))
+                .setLongLink(generateContentLink(getApplicationContext(), id, titulo, foto))
                 .buildShortDynamicLink()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
@@ -312,16 +313,16 @@ public class EventosActivity extends AppCompatActivity {
         });
     }
 
-    private static Uri generateContentLink(String id, String titulo, String imagen) {
+    private static Uri generateContentLink(Context context, String id, String titulo, String imagen) {
 
-        Uri baseUrl = Uri.parse("https://www.puntocomaapps.es/?id:" + id );
+        Uri baseUrl = Uri.parse("https://play.google.com/store/apps/details?id=" + context.getPackageName());
         String domain = "https://baco.puntocomaapps.es/";
 
         DynamicLink link = FirebaseDynamicLinks.getInstance()
                 .createDynamicLink()
                 .setLink(baseUrl)
                 .setDomainUriPrefix(domain)
-                .setAndroidParameters(new DynamicLink.AndroidParameters.Builder("baco.puntocomaapps.es")
+                .setAndroidParameters(new DynamicLink.AndroidParameters.Builder()
                         .setMinimumVersion(11)
                         .build())
                 .setSocialMetaTagParameters(

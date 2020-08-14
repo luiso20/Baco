@@ -41,7 +41,6 @@ import java.util.Objects;
 public class ProfileFragment extends Fragment {
 
     private DatabaseReference mDatabase;
-    private String emailUsuario = "";
     private ListView mListView;
     final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -149,7 +148,7 @@ public class ProfileFragment extends Fragment {
                 }
             });
 
-            emailUsuario = user.getEmail();
+            String emailUsuario = user.getEmail();
 
             TextView tvEmailFirebase = view.findViewById(R.id.tvEmailFirebase);
             tvEmailFirebase.setText(emailUsuario);
