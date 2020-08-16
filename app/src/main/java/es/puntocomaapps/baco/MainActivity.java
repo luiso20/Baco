@@ -37,7 +37,6 @@ import com.google.android.gms.ads.VideoOptions;
 import com.google.android.gms.ads.formats.NativeAdOptions;
 import com.google.android.gms.ads.formats.UnifiedNativeAd;
 import com.google.android.gms.ads.formats.UnifiedNativeAdView;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -46,7 +45,6 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
 import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.firebase.iid.InstanceIdResult;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -213,7 +211,11 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                firebaseSearch(newText);
+                if (newText.length() > 0){
+                    firebaseSearch(newText);
+                } else {
+                    showEvents(queryEventos);
+                }
                 return false;
             }
         });
@@ -320,10 +322,20 @@ public class MainActivity extends AppCompatActivity {
         rvEventos.setLayoutManager(new GridLayoutManager(getApplicationContext(), mNoOfColumns));
         rvEventos.setAdapter(listAdapter);
 
+        Date date = new Date();
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String fechaActual = "";
+        try {
+            fechaActual = dateFormat.format(date);
+        } catch (Exception e) {
+            Log.e(TAG, "Error parsing date: " + date);
+        }
+
         BaseDatosFirebase bdFirebase = new BaseDatosFirebase();
         DatabaseReference reference = bdFirebase.getDbReference().child("evento");
+        Query querySearch = reference.orderByChild("fecha").startAt(fechaActual);
 
-        reference.addValueEventListener(new ValueEventListener() {
+        querySearch.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
@@ -331,22 +343,20 @@ public class MainActivity extends AppCompatActivity {
                         Evento evento = snapshot.getValue(Evento.class);
                         assert evento != null;
 
-                        if (evento.getKeywords() != null) {
-                            if (evento.getKeywords().contains(query)) {
-                                eventList.add(evento);
-                                Log.e(TAG, evento.toString());
-                                listAdapter.notifyDataSetChanged();
-                            }
+                        if (evento.getKeywords() != null && evento.getKeywords().contains(query)) {
+                            eventList.add(evento);
+                            listAdapter.notifyDataSetChanged();
                         }
                     }
                 }
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+            public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
+
     }
 
     public String getVersionActual(Context ctx){
@@ -358,6 +368,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("StaticFieldLeak")
     class updateApplication extends AsyncTask<Void, String, String> {
 
         @Override
