@@ -36,6 +36,7 @@ import com.google.firebase.database.ValueEventListener;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Objects;
 
 public class ProfileFragment extends Fragment {
@@ -109,8 +110,19 @@ public class ProfileFragment extends Fragment {
 
                                         final ArrayList<Evento> array = new ArrayList<>();
                                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                                            DatabaseReference eventoRef;
+                                            switch (Locale.getDefault().getLanguage()) {
+                                                case "en":
+                                                    eventoRef = FirebaseDatabase.getInstance().getReference().child("evento_en").child(Objects.requireNonNull(snapshot.getKey()));
+                                                    break;
+                                                case "de":
+                                                    eventoRef = FirebaseDatabase.getInstance().getReference().child("evento_de").child(Objects.requireNonNull(snapshot.getKey()));
+                                                    break;
+                                                default:
+                                                    eventoRef = FirebaseDatabase.getInstance().getReference().child("evento").child(Objects.requireNonNull(snapshot.getKey()));
+                                                    break;
 
-                                            DatabaseReference eventoRef = FirebaseDatabase.getInstance().getReference().child("evento").child(Objects.requireNonNull(snapshot.getKey()));
+                                            }
                                             eventoRef.addListenerForSingleValueEvent(new ValueEventListener() {
                                                 @Override
                                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

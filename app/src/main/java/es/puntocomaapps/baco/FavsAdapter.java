@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -26,6 +28,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Objects;
 
 public class FavsAdapter extends ArrayAdapter<Evento> {
 
@@ -74,13 +77,15 @@ public class FavsAdapter extends ArrayAdapter<Evento> {
         builder.setPositiveButton(R.string.aceptar, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                assert user != null;
                 DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("usuario").child(user.getUid()).child("favoritos");
                 reference.addValueEventListener(new ValueEventListener() {
+                    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                            if (snapshot.getKey().equals(evento.getId())) {
-                                reference.child(snapshot.getKey()).removeValue();
+                            if (Objects.equals(snapshot.getKey(), evento.getId())) {
+                                reference.child(Objects.requireNonNull(snapshot.getKey())).removeValue();
                             }
                         }
                     }
@@ -93,29 +98,19 @@ public class FavsAdapter extends ArrayAdapter<Evento> {
             }
         });
 
-        builder.setNegativeButton(R.string.cancelar, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                return;
-            }
+        builder.setNegativeButton(R.string.cancelar, (dialog, which) -> {
         });
 
-        convertView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                AlertDialog dialog = builder.create();
-                dialog.show();
-                return false;
-            }
+        convertView.setOnLongClickListener(v -> {
+            AlertDialog dialog = builder.create();
+            dialog.show();
+            return false;
         });
 
-        convertView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), EventosActivity.class);
-                intent.putExtra("ficha", evento);
-                v.getContext().startActivity(intent);
-            }
+        convertView.setOnClickListener(v -> {
+            Intent intent = new Intent(v.getContext(), EventosActivity.class);
+            intent.putExtra("ficha", evento);
+            v.getContext().startActivity(intent);
         });
 
         return convertView;

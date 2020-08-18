@@ -73,10 +73,10 @@ public class ComentariosFragment extends Fragment {
             public void onClick(View view) {
                 if (!etComentarios.getText().toString().isEmpty()) {
                     insertarComentario(etComentarios.getText().toString(), fechaHoy, usuario[0], id_evento, String.valueOf(rbComentarios.getRating()));
-                    Toast.makeText(view.getContext(), "¡Gracias por su comentario!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(view.getContext(), R.string.thanks_comment, Toast.LENGTH_SHORT).show();
                     Objects.requireNonNull(getActivity()).onBackPressed();
                 } else {
-                    Toast.makeText(getContext(), "Valora el evento antes de darle a enviar ;)", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), R.string.event_rate, Toast.LENGTH_LONG).show();
                 }
 
             }

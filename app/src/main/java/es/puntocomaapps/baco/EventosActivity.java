@@ -218,7 +218,7 @@ public class EventosActivity extends AppCompatActivity {
         btnShare.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_SEND);
 
-            String msg = "¡Mira el evento que he encontrado!: " + shortLink;
+            String msg = getString(R.string.event_found) + shortLink;
             intent.putExtra(Intent.EXTRA_TEXT, msg);
             intent.setType("text/plain");
 

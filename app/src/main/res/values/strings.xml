@@ -142,5 +142,8 @@
     <string name="imagen_categoria_infantil">Imagen categoría Infantil</string>
     <string name="imagen_categoria_conciertos">Imagen categoría Conciertos</string>
     <string name="imagen_categoria_teatro">Imagen categoría Teatro</string>
+    <string name="event_found">¡Mira el evento que he encontrado!: </string>
+    <string name="event_rate">Valora el evento antes de darle a enviar ;)</string>
+    <string name="thanks_comment">¡Gracias por su comentario!</string>
 
 </resources>

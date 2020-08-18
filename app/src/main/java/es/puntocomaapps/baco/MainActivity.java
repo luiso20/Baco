@@ -5,8 +5,6 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
-import androidx.cardview.widget.CardView;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,9 +24,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -59,6 +57,7 @@ import java.text.Normalizer;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
@@ -168,7 +167,18 @@ public class MainActivity extends AppCompatActivity {
         }
 
         BaseDatosFirebase bdFirebase = new BaseDatosFirebase();
-        queryEventos = bdFirebase.getDbReference().child("evento").orderByChild("fecha").startAt(fechaActual);
+        switch (Locale.getDefault().getLanguage()) {
+            case "en":
+                queryEventos = bdFirebase.getDbReference().child("evento_en").orderByChild("fecha").startAt(fechaActual);
+                break;
+            case "de":
+                queryEventos = bdFirebase.getDbReference().child("evento_de").orderByChild("fecha").startAt(fechaActual);
+                break;
+            default:
+                queryEventos = bdFirebase.getDbReference().child("evento").orderByChild("fecha").startAt(fechaActual);
+                break;
+
+        }
         queryEventos.keepSynced(true);
         showEvents(queryEventos);
 
@@ -205,7 +215,7 @@ public class MainActivity extends AppCompatActivity {
         SearchView searchView = (SearchView) mSearch.getActionView();
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
         searchView.setQueryHint(getResources().getString(R.string.search_hint));
-        ConstraintLayout clSuggestions = findViewById(R.id.clSuggestions);
+        //ConstraintLayout clSuggestions = findViewById(R.id.clSuggestions);
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -218,8 +228,8 @@ public class MainActivity extends AppCompatActivity {
             public boolean onQueryTextChange(String newText) {
                 if (newText.length() > 0){
                     firebaseSearch(newText);
-                } else {
-                    /*clSuggestions.setVisibility(View.VISIBLE);
+                } /*else {
+                    clSuggestions.setVisibility(View.VISIBLE);
                     CardView cvTheater = findViewById(R.id.cvTeather);
                     CardView cvConcerts = findViewById(R.id.cvConcerts);
                     CardView cvChildish = findViewById(R.id.cvChildish);
@@ -255,8 +265,8 @@ public class MainActivity extends AppCompatActivity {
                     cvDance.setOnClickListener(view -> {
                         firebaseSearch("danza");
                         clSuggestions.setVisibility(View.GONE);
-                    });*/
-                }
+                    });
+                }*/
                 return false;
             }
         });
@@ -362,7 +372,6 @@ public class MainActivity extends AppCompatActivity {
 
         String minus = searchText.toLowerCase();
         String query = cleanString(minus);
-        Log.e("QUERY:", query);
         ArrayList<Evento> eventList = new ArrayList<>();
 
         listAdapter = new SearchAdapter(eventList);
@@ -382,7 +391,19 @@ public class MainActivity extends AppCompatActivity {
         }
 
         BaseDatosFirebase bdFirebase = new BaseDatosFirebase();
-        DatabaseReference reference = bdFirebase.getDbReference().child("evento");
+        DatabaseReference reference;
+        switch (Locale.getDefault().getLanguage()) {
+            case "en":
+                reference = bdFirebase.getDbReference().child("evento_en");
+                break;
+            case "de":
+                reference = bdFirebase.getDbReference().child("evento_de");
+                break;
+            default:
+                reference = bdFirebase.getDbReference().child("evento");
+                break;
+
+        }
         Query querySearch = reference.orderByChild("fecha").startAt(fechaActual);
 
         querySearch.addValueEventListener(new ValueEventListener() {

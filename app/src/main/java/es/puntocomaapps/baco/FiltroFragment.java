@@ -38,6 +38,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Objects;
 
 public class FiltroFragment extends Fragment {
@@ -83,8 +84,19 @@ public class FiltroFragment extends Fragment {
         Date date = new Date();
         @SuppressLint("SimpleDateFormat") DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String fechaActual = dateFormat.format(date);
+        final Query query;
+        switch (Locale.getDefault().getLanguage()) {
+            case "en":
+                query = reference.child("evento_en").orderByChild("ordenMunYFecha").startAt(municipio + "/" + fechaActual).endAt(municipio + "/" + "\uf8ff");
+                break;
+            case "de":
+                query = reference.child("evento_de").orderByChild("ordenMunYFecha").startAt(municipio + "/" + fechaActual).endAt(municipio + "/" + "\uf8ff");
+                break;
+            default:
+                query = reference.child("evento").orderByChild("ordenMunYFecha").startAt(municipio + "/" + fechaActual).endAt(municipio + "/" + "\uf8ff");
+                break;
 
-        final Query query = reference.child("evento").orderByChild("ordenMunYFecha").startAt(municipio + "/" + fechaActual).endAt(municipio + "/" + "\uf8ff");
+        }
 
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
