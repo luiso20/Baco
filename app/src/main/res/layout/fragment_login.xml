@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:padding="10dp"
                 android:background="@drawable/boton_redondeado"
-                style="?android:buttonBarButtonStyle"
+                style="?android:attr/buttonBarButtonStyle"
                 android:text="@string/iniciar_sesion" />
 
             <Button

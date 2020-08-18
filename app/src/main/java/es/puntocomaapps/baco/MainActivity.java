@@ -5,6 +5,8 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,6 +26,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -52,6 +55,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.text.Normalizer;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -200,8 +204,9 @@ public class MainActivity extends AppCompatActivity {
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         SearchView searchView = (SearchView) mSearch.getActionView();
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-
         searchView.setQueryHint(getResources().getString(R.string.search_hint));
+        ConstraintLayout clSuggestions = findViewById(R.id.clSuggestions);
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -214,9 +219,52 @@ public class MainActivity extends AppCompatActivity {
                 if (newText.length() > 0){
                     firebaseSearch(newText);
                 } else {
-                    showEvents(queryEventos);
+                    /*clSuggestions.setVisibility(View.VISIBLE);
+                    CardView cvTheater = findViewById(R.id.cvTeather);
+                    CardView cvConcerts = findViewById(R.id.cvConcerts);
+                    CardView cvChildish = findViewById(R.id.cvChildish);
+                    CardView cvComedy = findViewById(R.id.cvComedy);
+                    CardView cvMagic = findViewById(R.id.cvMagic);
+                    CardView cvDance = findViewById(R.id.cvDance);
+
+                    cvTheater.setOnClickListener(view -> {
+                        firebaseSearch("teatro");
+                        clSuggestions.setVisibility(View.GONE);
+                    });
+
+                    cvConcerts.setOnClickListener(view -> {
+                        firebaseSearch("conciertos");
+                        clSuggestions.setVisibility(View.GONE);
+                    });
+
+                    cvChildish.setOnClickListener(view -> {
+                        firebaseSearch("infantil");
+                        clSuggestions.setVisibility(View.GONE);
+                    });
+
+                    cvComedy.setOnClickListener(view -> {
+                        firebaseSearch("comedia");
+                        clSuggestions.setVisibility(View.GONE);
+                    });
+
+                    cvMagic.setOnClickListener(view -> {
+                        firebaseSearch("magia");
+                        clSuggestions.setVisibility(View.GONE);
+                    });
+
+                    cvDance.setOnClickListener(view -> {
+                        firebaseSearch("danza");
+                        clSuggestions.setVisibility(View.GONE);
+                    });*/
                 }
                 return false;
+            }
+        });
+
+        searchView.setOnQueryTextFocusChangeListener((view, b) -> {
+            if (!b) {
+                showEvents(queryEventos);
+                //clSuggestions.setVisibility(View.INVISIBLE);
             }
         });
 
@@ -312,7 +360,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void firebaseSearch(String searchText){
 
-        String query = searchText.toLowerCase();
+        String minus = searchText.toLowerCase();
+        String query = cleanString(minus);
+        Log.e("QUERY:", query);
         ArrayList<Evento> eventList = new ArrayList<>();
 
         listAdapter = new SearchAdapter(eventList);
@@ -357,6 +407,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+    }
+
+    public static String cleanString(String texto) {
+        texto = Normalizer.normalize(texto, Normalizer.Form.NFD);
+        texto = texto.replaceAll("[\\p{InCOMBINING_DIACRITICAL_MARKS}]", "");
+        return texto;
     }
 
     public String getVersionActual(Context ctx){
@@ -481,7 +538,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        //mAdapter.stopListening();
     }
 
     @Override

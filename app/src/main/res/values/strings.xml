@@ -130,4 +130,17 @@
     <string name="send_email">Enviar email…</string>
     <string name="check_email">Verifique su correo para continuar</string>
 
+    <string name="teatro">Teatro</string>
+    <string name="conciertos">Conciertos</string>
+    <string name="infantil">Infantil</string>
+    <string name="comedia">Comedia</string>
+    <string name="magia">Magia</string>
+    <string name="danza">Danza</string>
+    <string name="imagen_categoria_danza">Imagen categoría Danza</string>
+    <string name="imagen_categoria_magia">Imagen categoría Magia</string>
+    <string name="imagen_categoria_comedia">Imagen categoría Comedia</string>
+    <string name="imagen_categoria_infantil">Imagen categoría Infantil</string>
+    <string name="imagen_categoria_conciertos">Imagen categoría Conciertos</string>
+    <string name="imagen_categoria_teatro">Imagen categoría Teatro</string>
+
 </resources>

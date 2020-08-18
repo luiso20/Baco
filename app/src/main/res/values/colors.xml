@@ -20,4 +20,7 @@
     <color name="add_button_color">#6200EE</color>
     <color name="add_button_text_color">#FFFFFF</color>
 
+    <!-- Suggestions buttons -->
+    <color name="suggestions_background_color">#C9A6CF</color>
+
 </resources>

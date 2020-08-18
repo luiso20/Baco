@@ -4,5 +4,5 @@
     android:shape="rectangle">
     <!--  el boton tiene color verde de fondo, por ejemplo -->
     <solid android:color="@color/accent" />
-    <corners android:radius="20dp" />
+    <corners android:radius="5dp" />
 </shape>

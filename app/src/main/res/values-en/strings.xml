@@ -122,4 +122,17 @@
     <string name="event_data">I know of an event that is going to take place in my municipality, the data is:</string>
     <string name="send_email">Send email…</string>
     <string name="check_email">Check your email to continue</string>
+
+    <string name="teatro">Theater</string>
+    <string name="conciertos">Concerts</string>
+    <string name="infantil">Childish</string>
+    <string name="comedia">Comedy</string>
+    <string name="magia">Magic</string>
+    <string name="danza">Dance</string>
+    <string name="imagen_categoria_danza">Image category dance</string>
+    <string name="imagen_categoria_magia">Image category magic</string>
+    <string name="imagen_categoria_comedia">Image category comedy</string>
+    <string name="imagen_categoria_infantil">Image category child</string>
+    <string name="imagen_categoria_conciertos">Image category concerts</string>
+    <string name="imagen_categoria_teatro">Image category theater</string>
 </resources>

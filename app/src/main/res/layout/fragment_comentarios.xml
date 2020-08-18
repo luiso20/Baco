@@ -30,10 +30,11 @@
 
     <Button
         android:id="@+id/btnEnviarComentarios"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/primary"
-        android:layout_margin="10dp"
+        android:layout_gravity="center"
+        android:background="@drawable/boton_redondeado"
+        android:paddingHorizontal="20dp"
         android:text="@string/enviar" />
 
     <androidx.recyclerview.widget.RecyclerView

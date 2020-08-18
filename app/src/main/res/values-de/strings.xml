@@ -105,4 +105,16 @@
     <string name="event_data">Ich weiß von einem Ereignis, das in meiner Gemeinde stattfinden wird. Die Daten sind:</string>
     <string name="send_email">E-Mail senden…</string>
     <string name="check_email">Überprüfen Sie Ihre E-Mails, um fortzufahren</string>
+    <string name="teatro">Theater</string>
+    <string name="conciertos">Konzerte</string>
+    <string name="infantil">Kindisch</string>
+    <string name="comedia">Komödie</string>
+    <string name="magia">Magie</string>
+    <string name="danza">Tanzen</string>
+    <string name="imagen_categoria_danza">Bildkategorie Tanz</string>
+    <string name="imagen_categoria_magia">Bildkategorie Magie</string>
+    <string name="imagen_categoria_comedia">Bildkategorie Komödie</string>
+    <string name="imagen_categoria_infantil">Bildkategorie Kind</string>
+    <string name="imagen_categoria_conciertos">Bildkategorie Konzerte</string>
+    <string name="imagen_categoria_teatro">Bildkategorie Theater</string>
 </resources>
