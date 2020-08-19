@@ -44,6 +44,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.dynamiclinks.DynamicLink;
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
 import com.google.firebase.iid.FirebaseInstanceId;
 
@@ -99,13 +100,13 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     if (deepLink != null) {
-                        String cadena = deepLink.toString();
-                        final String id = cadena.substring(cadena.indexOf("?id:")+4);
-                        Log.e(TAG, "deepLink: " + cadena);
                         BaseDatosFirebase bdFirebase = new BaseDatosFirebase();
                         final DatabaseReference reference = bdFirebase.getDbReference().child("evento");
 
                         final Evento evento = new Evento();
+
+                        String[] ids = deepLink.toString().split("id=");
+                        String id = ids[1];
 
                         reference.addListenerForSingleValueEvent(new ValueEventListener() {
                             @RequiresApi(api = Build.VERSION_CODES.KITKAT)

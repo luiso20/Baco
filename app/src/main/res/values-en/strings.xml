@@ -138,4 +138,5 @@
     <string name="event_found">Check out the event I found !: </string>
     <string name="event_rate">Rate the event before to send ;)</string>
     <string name="thanks_comment">Thank you for your comment!</string>
+    <string name="event_info">Enter and find out about this event!</string>
 </resources>

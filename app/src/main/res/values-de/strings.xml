@@ -120,4 +120,5 @@
     <string name="event_found">Schauen Sie sich das Ereignis an, das ich gefunden habe!</string>
     <string name="event_rate">Bewerten Sie das Ereignis, bevor Sie es senden ;)</string>
     <string name="thanks_comment">Danke für deinen Kommentar!</string>
+    <string name="event_info">Treten Sie ein und informieren Sie sich über diese Veranstaltung!</string>
 </resources>

@@ -21,7 +21,6 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.bumptech.glide.Glide;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -202,18 +201,28 @@ public class EventosActivity extends AppCompatActivity {
             startActivity(calIntent);
         });
 
-        final Task<ShortDynamicLink> shortLinkTask = FirebaseDynamicLinks.getInstance().createDynamicLink()
+        FirebaseDynamicLinks.getInstance().createDynamicLink()
                 .setLongLink(generateContentLink(getApplicationContext(), id, titulo, foto))
                 .buildShortDynamicLink()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         shortLink = Objects.requireNonNull(task.getResult()).getShortLink();
                         Uri flowChartLink = task.getResult().getPreviewLink();
-                        Log.e("EventosActivity", shortLink.toString());
                     } else {
                         Log.e("EventosActivity"," error " + task.getException());
                     }
                 });
+        /*FirebaseDynamicLinks.getInstance().createDynamicLink()
+                .setLongLink(generateManualLink(getApplicationContext(), id, titulo, foto))
+                .buildShortDynamicLink()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        shortLink = Objects.requireNonNull(task.getResult()).getShortLink();
+                        Uri flowChartLink = task.getResult().getPreviewLink();
+                    } else {
+                        Log.e("EventosActivity"," error " + task.getException());
+                    }
+                });*/
 
         btnShare.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_SEND);
@@ -315,8 +324,9 @@ public class EventosActivity extends AppCompatActivity {
 
     private static Uri generateContentLink(Context context, String id, String titulo, String imagen) {
 
-        Uri baseUrl = Uri.parse("https://play.google.com/store/apps/details?id=" + context.getPackageName());
-        String domain = "https://baco.puntocomaapps.es/";
+        //Uri baseUrl = Uri.parse("https://play.google.com/store/apps/details?id=" + context.getPackageName());
+        Uri baseUrl = Uri.parse("https://baco.puntocomaapps.es/" + "?id=" + id);
+        String domain = "https://baco.puntocomaapps.es/" + "?id=" + id;
 
         DynamicLink link = FirebaseDynamicLinks.getInstance()
                 .createDynamicLink()
@@ -328,11 +338,18 @@ public class EventosActivity extends AppCompatActivity {
                 .setSocialMetaTagParameters(
                         new DynamicLink.SocialMetaTagParameters.Builder()
                                 .setTitle(titulo)
-                                .setDescription("¡Entra e infórmate de este evento!")
+                                .setDescription(context.getString(R.string.event_info))
                                 .setImageUrl(Uri.parse(imagen))
                                 .build())
                 .buildDynamicLink();
-
         return link.getUri();
+    }
+
+    private Uri generateManualLink(Context context, String id, String titulo, String imagen) {
+        Uri baseUrl = Uri.parse("https://play.google.com/store/apps/details?id=" + context.getPackageName());
+        String domain = "https://baco.puntocomaapps.es/";
+
+        return Uri.parse(domain + "?link=" + baseUrl + "&apn=" + context.getPackageName() + "[&amv=11]&st=" + titulo +
+                "&sd=" + context.getString(R.string.event_info) + "&si=" +  Uri.parse(imagen) + "&id=" + id);
     }
 }

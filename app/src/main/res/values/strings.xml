@@ -145,5 +145,6 @@
     <string name="event_found">¡Mira el evento que he encontrado!: </string>
     <string name="event_rate">Valora el evento antes de darle a enviar ;)</string>
     <string name="thanks_comment">¡Gracias por su comentario!</string>
+    <string name="event_info">¡Entra e infórmate de este evento!</string>
 
 </resources>
