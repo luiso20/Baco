@@ -139,4 +139,9 @@
     <string name="event_rate">Rate the event before to send ;)</string>
     <string name="thanks_comment">Thank you for your comment!</string>
     <string name="event_info">Enter and find out about this event!</string>
+
+    <string name="appwidget_text">Example</string>
+    <string name="add_widget">Add widget</string>
+    <string name="huella">Fingerprint</string>
+    <string name="restablezca_su_contrasena">Reset your password</string>
 </resources>

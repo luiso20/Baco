@@ -123,7 +123,7 @@
     <string name="busqueda">Búsqueda</string>
     <string name="ad_attribution" translatable="false">Ad</string>
     <string name="ad_icon">Icono publicidad</string>
-    
+
     <!-- Envío de email -->
     <string name="event_suggestion">Sugerencia de evento</string>
     <string name="event_data">Sé de un evento que se va a realizar en mi municipio, los datos son: </string>
@@ -146,5 +146,9 @@
     <string name="event_rate">Valora el evento antes de darle a enviar ;)</string>
     <string name="thanks_comment">¡Gracias por su comentario!</string>
     <string name="event_info">¡Entra e infórmate de este evento!</string>
+    <string name="appwidget_text">Ejemplo</string>
+    <string name="add_widget">Añadir widget</string>
+    <string name="huella">Huella</string>
+    <string name="restablezca_su_contrasena">Restablezca su contraseña</string>
 
 </resources>
